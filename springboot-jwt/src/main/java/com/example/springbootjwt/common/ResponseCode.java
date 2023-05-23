@@ -6,7 +6,11 @@ import lombok.Getter;
 public enum ResponseCode {
 
     SUCC("0000", "SUCC"),
-    FAIL("9999", "FAIL");
+    FAIL("9999", "FAIL"),
+    
+    TOKEN_NOT_EXIST("1001", "TOKEN NOT EXIST"),
+    TOKEN_NOT_CORRECT("1002", "TOKEN NOT CORRECT"),
+    USER_NOT_FOUND("1003", "USER NOT FOUND");
 
     private final String code;
     private final String message;

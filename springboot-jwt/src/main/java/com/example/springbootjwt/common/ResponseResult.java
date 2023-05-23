@@ -23,9 +23,13 @@ public class ResponseResult<T> {
     }
 
     public static <T> ResponseResult<T> fail(T data){
+        return fail(ResponseCode.FAIL, data);
+    }
+
+    public static <T> ResponseResult<T> fail(ResponseCode responseCode,T data){
         ResponseResult result = new ResponseResult();
-        result.setCode(ResponseCode.FAIL.getCode());
-        result.setMessage(ResponseCode.FAIL.getMessage());
+        result.setCode(responseCode.getCode());
+        result.setMessage(responseCode.getMessage());
         if(data != null)
             result.setData(data);
         return result;
