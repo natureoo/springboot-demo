@@ -32,6 +32,8 @@ public class ResponseResult<T> {
         result.setMessage(responseCode.getMessage());
         if(data != null)
             result.setData(data);
+        else
+            result.setData("");
         return result;
     }
 

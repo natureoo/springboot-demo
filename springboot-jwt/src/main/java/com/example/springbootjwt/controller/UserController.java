@@ -45,7 +45,7 @@ public class UserController {
         User responseUser = userService.login(user);
         ResponseResult<String> responseResult = null;
         if(responseUser == null)
-            responseResult = ResponseResult.fail("User not found");
+            throw new RuntimeException("User not found");
         else {
             String token = tokenService.generateToken(responseUser);
             responseResult = ResponseResult.succ(token);
