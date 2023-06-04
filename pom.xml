@@ -23,6 +23,7 @@
     <modules>
         <module>springboot-helloworld</module>
         <module>springboot-jwt</module>
+        <module>springboot-thymeleaf</module>
     </modules>
 
     <dependencies>
