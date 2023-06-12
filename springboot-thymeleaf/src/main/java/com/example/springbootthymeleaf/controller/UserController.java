@@ -19,20 +19,25 @@ public class UserController {
 
     @RequestMapping("index")
     public String index(){
-        return "redirect:/list";
+        return "redirect:list";
     }
 
     @RequestMapping("list")
     public String list(Model model){
         List<User> users = userService.getUserList();
         model.addAttribute("users", users);
-        return "user/lists";
+        return "user/list";
     }
 
     @RequestMapping("add")
-    public String add(User user){
+    public String add( User user){
         userService.saveUser(user);
-        return "redirect:/list";
+        return "redirect:list";
+    }
+
+    @RequestMapping("toAdd")
+    public String toAdd(User user){
+        return "user/userAdd";
     }
 
     @RequestMapping("toEdit")
@@ -43,18 +48,18 @@ public class UserController {
             model.addAttribute("user", user);
             return "user/userEdit";
         }else
-            return "redirect:/list";
+            return "redirect:list";
     }
 
     @RequestMapping("edit")
     public String edit(User user){
         userService.editUser(user);
-        return "redirect:/list";
+        return "redirect:list";
     }
 
     @RequestMapping("delete")
     public String delete(Long id){
         userService.deleteUser(id);
-        return "redirect:/list";
+        return "redirect:list";
     }
 }
